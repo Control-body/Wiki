@@ -1,5 +1,5 @@
 server:
   port: 8880
-#
-#test:
-#  hello: "自定义"
+
+test:
+  hello: "自定义3"
