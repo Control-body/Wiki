@@ -1,0 +1,137 @@
+GET http://localhost:8880/ebook/list
+
+<> 2022-05-07T154423.200.json
+
+###
+
+GET http://localhost:8880/test/list
+
+<> 2022-05-07T152352.200.json
+
+###
+
+GET http://localhost:8880/demo/list
+
+<> 2022-05-07T152335.200.json
+
+###
+
+GET http://localhost:8880/demo/list
+
+###
+
+GET http://localhost:8880/test/list
+
+<> 2022-05-07T144731.200.json
+
+###
+
+GET http://localhost:8880/test/list
+
+<> 2022-05-07T144614.500.json
+
+###
+
+GET http://localhost:8880/test/list
+
+<> 2022-05-07T143331.200.json
+
+###
+
+GET http://localhost:8880/test/list
+
+<> 2022-05-07T141421.200.json
+
+###
+
+GET http://localhost:8880/test/list
+
+<> 2022-05-07T141225.500.json
+
+###
+
+GET http://localhost:8880/test/list
+
+<> 2022-05-07T140805.500.json
+
+###
+
+GET http://localhost:8880/test/list
+
+<> 2022-05-07T140725.404.json
+
+###
+
+GET http://localhost:8880/hello
+
+<> 2022-05-07T122911.200.txt
+
+###
+
+GET http://localhost:8880/hello
+
+<> 2022-05-07T122717.200.txt
+
+###
+
+GET http://localhost:8880/hello
+
+<> 2022-05-07T122657.200.txt
+
+###
+
+GET http://localhost:8880/hello
+
+<> 2022-05-07T121657.200.txt
+
+###
+
+GET http://localhost:8880/hello
+
+<> 2022-05-07T121516.200.txt
+
+###
+
+GET http://localhost:8880/hello
+
+%}
+
+###
+
+GET http://localhost:8880/hello
+
+<> 2022-05-07T112625.200.txt
+
+###
+
+GET http://localhost:8880/hello
+
+<> 2022-05-07T112557.200.txt
+
+###
+
+GET http://localhost:8880/hello
+
+<> 2022-05-07T112522.200.txt
+
+###
+
+GET http://localhost:8880/hello
+
+<> 2022-05-07T112447.200.txt
+
+###
+
+GET http://localhost:8880/hello
+
+<> 2022-05-07T112357.200.txt
+
+###
+
+GET http://localhost:8880/hello
+Accept: application/json
+
+<> 2022-05-07T111941.200.json
+
+###
+
