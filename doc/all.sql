@@ -25,7 +25,7 @@ create table `ebook`(
     primary key (`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment ='电子书';
 
-insert into `ebook` (id,name,description) values (1,'SpringBoot 入门教程','零基础入门WEB 必备');
+insert into `ebook` (id,name,description) values (1,'ebookExampleBoot 入门教程','零基础入门WEB 必备');
 insert into `ebook` (id,name,description) values (2,'Vue 入门教程','零基础入门Vue 必备');
 insert into `ebook` (id,name,description) values (3,'pythoon入门教程','零基础入门pythoon 必备');
 insert into `ebook` (id,name,description) values (4,'Mysql 入门教程','零基础入门Mysql 必备');
