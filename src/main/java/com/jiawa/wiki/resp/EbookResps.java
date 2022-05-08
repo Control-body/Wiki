@@ -5,5 +5,5 @@ import lombok.Data;
 import java.util.List;
 @Data
 public class EbookResps {
-    private List<EbookResp> list;
+    private List<EbookQueryResp> list;
 }

@@ -3,7 +3,7 @@ package com.jiawa.wiki.resp;
 /**
  * 脱敏  出去敏感字段
  */
-public class EbookResp {
+public class EbookQueryResp {
     private Long id;
 
     private String name;
