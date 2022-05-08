@@ -10,6 +10,8 @@ import com.jiawa.wiki.service.EbookServce;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
+
 // 在controller层 不要出现真实的 dao实体类
 @RestController
 @RequestMapping("/ebook")
@@ -17,7 +19,7 @@ public class EbookController {
     @Resource
     private EbookServce ebookServce;
     @GetMapping("/list")
-    public CommonResp list(EbookQueryReq req){
+    public CommonResp list(@Valid EbookQueryReq req){
         CommonResp<PageResp<EbookQueryResp>> objectCommonResp = new CommonResp<>();
         PageResp<EbookQueryResp> list = ebookServce.list(req);
         objectCommonResp.setContent(list);
@@ -33,7 +35,7 @@ public class EbookController {
     }
 
     @PostMapping("/save")
-    public CommonResp save(@RequestBody EbookSaveReq req){
+    public CommonResp save(@Valid @RequestBody EbookSaveReq req){
         CommonResp objectCommonResp = new CommonResp<>();
         ebookServce.save(req);
         return objectCommonResp;
