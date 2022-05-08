@@ -11,6 +11,7 @@ import com.jiawa.wiki.resp.EbookQueryResp;
 import com.jiawa.wiki.resp.EbookResps;
 import com.jiawa.wiki.resp.PageResp;
 import com.jiawa.wiki.utils.CopyUtil;
+import com.jiawa.wiki.utils.SnowFlake;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,9 @@ public class EbookServce {
     //JDK自带的
     //@Autowired // 自动注入 Spring带的
     private EbookMapper ebookMapper;
+
+    @Resource
+    private SnowFlake snowFlake;
     public PageResp<EbookQueryResp> list(EbookQueryReq req){
         EbookExample ebookExample = new EbookExample();
         EbookExample.Criteria criteria = ebookExample.createCriteria();
@@ -62,11 +66,18 @@ public class EbookServce {
 
         if(ObjectUtils.isEmpty(req.getId())){
             // 空的话 就是去新增值
+            long l = snowFlake.nextId();
+            //给设置值
+            ebook.setId(l);
             ebookMapper.insert(ebook);
         }else{
             //新增
             ebookMapper.updateByPrimaryKey(ebook);
         }
 
+    }
+
+    public void delete(Long id) {
+        ebookMapper.deleteByPrimaryKey(id);
     }
 }
