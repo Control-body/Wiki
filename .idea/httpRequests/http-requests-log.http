@@ -1,3 +1,21 @@
+GET http://localhost:8880/ebook/delete%20178737568047829000
+
+<> 2022-05-09T132414.404.json
+
+###
+
+GET http://localhost:8880/ebook/delete%20178737568047829000
+
+<> 2022-05-09T132349.404.json
+
+###
+
+GET http://localhost:8880/ebook/delete178737568047829000
+
+<> 2022-05-09T132209.404.json
+
+###
+
 GET http://localhost:8880/ebook/list?page=1&size=1001
 
 <> 2022-05-08T184951.200.json
@@ -271,24 +289,6 @@ GET http://localhost:8880/hello
 GET http://localhost:8880/hello
 
 <> 2022-05-07T112557.200.txt
-
-###
-
-GET http://localhost:8880/hello
-
-<> 2022-05-07T112522.200.txt
-
-###
-
-GET http://localhost:8880/hello
-
-<> 2022-05-07T112447.200.txt
-
-###
-
-GET http://localhost:8880/hello
-
-<> 2022-05-07T112357.200.txt
 
 ###
 
