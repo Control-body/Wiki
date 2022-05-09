@@ -47,4 +47,6 @@ public class EbookController {
         ebookServce.delete(id);
         return objectCommonResp;
     }
+
+
 }
