@@ -34,6 +34,8 @@ public class CategoryService {
         CategoryExample categoryExample = new CategoryExample();
         CategoryExample.Criteria criteria = categoryExample.createCriteria();
         PageHelper.startPage(req.getPage(), req.getSize());
+
+        categoryExample.setOrderByClause("sort asc");  // 排序
         if(!ObjectUtils.isEmpty(req.getName()))
             criteria.andNameLike("%"+ req.getName()+"%%"); // 模糊匹配查询条件
 
@@ -69,5 +71,13 @@ public class CategoryService {
 
     public void delete(Long id) {
         categoryMapper.deleteByPrimaryKey(id);
+    }
+
+    public List<CategoryQueryResp> all(){
+        CategoryExample categoryExample = new CategoryExample();
+        categoryExample.setOrderByClause("sort asc");
+        List<Category> categoryList = categoryMapper.selectByExample(categoryExample);
+        List<CategoryQueryResp> respList = CopyUtil.copyList(categoryList, CategoryQueryResp.class);// 后面是泛型 里面的类
+        return respList;
     }
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
+import java.util.List;
 
 // 在controller层 不要出现真实的 dao实体类
 @RestController
@@ -17,6 +18,13 @@ import javax.validation.Valid;
 public class CategoryController {
     @Resource
     private CategoryService categoryServce;
+    @GetMapping("/all")
+    public CommonResp all(){
+        CommonResp<List<CategoryQueryResp>> objectCommonResp = new CommonResp<>();
+        List list = categoryServce.all();
+        objectCommonResp.setContent(list);
+        return objectCommonResp;
+    }
     @GetMapping("/list")
     public CommonResp list(@Valid CategoryQueryReq req){
         CommonResp<PageResp<CategoryQueryResp>> objectCommonResp = new CommonResp<>();
@@ -38,6 +46,5 @@ public class CategoryController {
         categoryServce.delete(id);
         return objectCommonResp;
     }
-
 
 }
