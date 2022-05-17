@@ -37,6 +37,9 @@ public class EbookServce {
         if(!ObjectUtils.isEmpty(req.getName()))
         criteria.andNameLike("%"+ req.getName()+"%%"); // 模糊匹配查询条件
 
+        if(!ObjectUtils.isEmpty(req.getCategoryId2()))
+            criteria.andCategory2IdEqualTo(req.getCategoryId2()); // 按照类型查  数据 模糊匹配查询条件
+
         PageHelper.startPage(req.getPage(), req.getSize());
         List<Ebook> ebookList = ebookMapper.selectByExample(ebookExample);
         PageInfo<Ebook> pageInfo = new PageInfo<>(ebookList);

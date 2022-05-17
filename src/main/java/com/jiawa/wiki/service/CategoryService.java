@@ -38,7 +38,6 @@ public class CategoryService {
         categoryExample.setOrderByClause("sort asc");  // 排序
         if(!ObjectUtils.isEmpty(req.getName()))
             criteria.andNameLike("%"+ req.getName()+"%%"); // 模糊匹配查询条件
-
         List<Category> categoryList = categoryMapper.selectByExample(categoryExample);
         PageInfo<Category> pageInfo = new PageInfo<>(categoryList);
 

@@ -6,9 +6,8 @@ public class EbookSaveReq {
     private Long id;
     @NotNull(message = "姓名不能为空")
     private String name;
-    @NotNull(message = "类型不能为空")
     private Long category1Id;
-    @NotNull(message = "类型不能为空")
+
     private Long category2Id;
     @NotNull(message = "描述不能为空")
     private String description;
