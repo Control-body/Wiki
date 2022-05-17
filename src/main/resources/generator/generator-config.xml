@@ -23,8 +23,8 @@
 
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
                         connectionURL="jdbc:mysql://101.132.174.210:3306/wikidev?serverTimezone=Asia/Shanghai"
-                        userId="wikidev"
-                        password="123456">
+                        userId="root"
+                        password="19182030">
         </jdbcConnection>
 
         <!-- domain类的位置 -->
@@ -41,13 +41,13 @@
                              type="XMLMAPPER"/>
 <!--       // <table tableName="demo" domainObjectName="Demo"/>-->
 <!--        <table tableName="ebook" domainObjectName="Ebook"/>-->
-        <table tableName="category"/>
+<!--        <table tableName="category"/>-->
         <!--<table tableName="demo" domainObjectName="Demo"/>-->
         <!--<table tableName="ebook"/>-->
         <!--<table tableName="category"/>-->
         <!--<table tableName="doc"/>-->
         <!--<table tableName="content"/>-->
         <!--<table tableName="user"/>-->
-        <table tableName="ebook_snapshot"/>
+        <table tableName="doc"/>
     </context>
 </generatorConfiguration>

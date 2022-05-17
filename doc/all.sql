@@ -56,3 +56,23 @@ insert into `category` (id,parent,name,sort) value (402,400,'redis',402);
 insert into `category` (id,parent,name,sort) value (500,000,'其他',500);
 insert into `category` (id,parent,name,sort) value (501,500,'开发工具',501);
 insert into `category` (id,parent,name,sort) value (502,500,'热门服务端语言',502);
+
+drop table if exists `doc`;
+create table `doc`
+(
+    `id`         bigint      not null commit 'id',
+    `ebook_id`   bigint      not null default 0 commit '电子书ID',
+    `parent`     bigint      not null commit '父Id',
+    `name`       varchar(50) not null commit '名称',
+    `sort`       int commit '顺序',
+    `view_count` int                  default 0 commit '阅读数',
+    `vote_count` int                  default 0 commit '点赞数',
+    primary key (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment ='文档';
+
+insert into `doc` (id, ebook_id, parent, name, sort, view_count, vote_count) value (1,1,0,'文档1',1,0,0);
+insert into `doc` (id, ebook_id, parent, name, sort, view_count, vote_count) value (2,1,1,'文档1.1',1,0,0);
+insert into `doc` (id, ebook_id, parent, name, sort, view_count, vote_count) value (3,1,0,'文档2',2,0,0);
+insert into `doc` (id, ebook_id, parent, name, sort, view_count, vote_count) value (4,1,3,'文档2.1',1,0,0);
+insert into `doc` (id, ebook_id, parent, name, sort, view_count, vote_count) value (5,1,3,'文档2.2',2,0,0);
+insert into `doc` (id, ebook_id, parent, name, sort, view_count, vote_count) value (6,1,5,'文档2.2.1',1,0,0);
