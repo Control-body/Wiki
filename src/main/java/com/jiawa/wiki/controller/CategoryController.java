@@ -22,6 +22,7 @@ public class CategoryController {
     public CommonResp all(){
         CommonResp<List<CategoryQueryResp>> objectCommonResp = new CommonResp<>();
         List list = categoryServce.all();
+
         objectCommonResp.setContent(list);
         return objectCommonResp;
     }
@@ -35,9 +36,9 @@ public class CategoryController {
 
     @PostMapping("/save")
     public CommonResp save(@Valid @RequestBody CategorySaveReq req){
-        CommonResp objectCommonResp = new CommonResp<>();
+        CommonResp commonResp = new CommonResp<>();
         categoryServce.save(req);
-        return objectCommonResp;
+        return commonResp;
     }
 
     @DeleteMapping("/delete/{id}")

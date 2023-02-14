@@ -44,6 +44,7 @@ public class EbookController {
     @DeleteMapping("/delete/{id}")
     public CommonResp delete(@PathVariable(value = "id") Long id){
         CommonResp objectCommonResp = new CommonResp<>();
+        System.out.println("删除来了");
         ebookServce.delete(id);
         return objectCommonResp;
     }

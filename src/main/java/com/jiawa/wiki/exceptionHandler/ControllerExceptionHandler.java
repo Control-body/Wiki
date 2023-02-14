@@ -1,4 +1,4 @@
-package com.jiawa.wiki.controller;
+package com.jiawa.wiki.exceptionHandler;
 
 //import com.jiawa.wiki.exception.BusinessException;
 import com.jiawa.wiki.resp.CommonResp;
@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @ControllerAdvice
 public class ControllerExceptionHandler {
-
     private static final Logger LOG = LoggerFactory.getLogger(ControllerExceptionHandler.class);
-
     /**
      * 校验参数异常统一处理
      * @param e

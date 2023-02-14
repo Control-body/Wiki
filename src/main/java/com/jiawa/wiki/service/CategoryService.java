@@ -62,7 +62,7 @@ public class CategoryService {
             category.setId(l);
             categoryMapper.insert(category);
         }else{
-            //新增
+            //修改值
             categoryMapper.updateByPrimaryKey(category);
         }
 

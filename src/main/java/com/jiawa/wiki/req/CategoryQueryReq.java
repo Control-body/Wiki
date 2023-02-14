@@ -7,6 +7,9 @@ import lombok.ToString;
 @Data
 public class CategoryQueryReq extends PageReq{
     private Long id;
-
     private String name;
+        @Override
+        public String toString() {
+            return "CategoryQueryReq{}"+super.toString();
+        }
 }

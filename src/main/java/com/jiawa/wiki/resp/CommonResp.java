@@ -1,5 +1,5 @@
 package com.jiawa.wiki.resp;
-
+// 统一返回给前端 讲查询到的 值全部封装到这个类中
 public class CommonResp<T> {
 
     /**
