@@ -7,9 +7,11 @@ import com.jiawa.wiki.domain.UserExample;
 import com.jiawa.wiki.exception.BusinessException;
 import com.jiawa.wiki.exception.BusinessExceptionCode;
 import com.jiawa.wiki.mapper.UserMapper;
+import com.jiawa.wiki.req.UserLoginReq;
 import com.jiawa.wiki.req.UserQueryReq;
 import com.jiawa.wiki.req.UserSaveReq;
 import com.jiawa.wiki.resp.PageResp;
+import com.jiawa.wiki.resp.UserLoginResp;
 import com.jiawa.wiki.resp.UserQueryResp;
 import com.jiawa.wiki.resp.UserResps;
 import com.jiawa.wiki.utils.CopyUtil;
@@ -79,7 +81,10 @@ public class UserServce {
 
         }else{
             //新增
-            userMapper.updateByPrimaryKey(user);
+            user.setLoginName(null);
+            user.setPassword(null);
+//             看实体中 是否 有字段,有的话 就进行跟新,没有就不更新
+            userMapper.updateByPrimaryKeySelective(user);
         }
 
     }
@@ -98,6 +103,30 @@ public class UserServce {
             return null;
         }else{
             return users.get(0);
+        }
+    }
+
+    /**
+     * 登录的编写
+     * @param req
+     * @return
+     */
+    public UserLoginResp login(UserLoginReq req) {
+        User userDB = selectByLoginName(req.getLoginName());
+        if(ObjectUtils.isEmpty(userDB)){
+            Log.info("用户名不存在,{}",req.getLoginName());
+            // 用户名不正确
+            throw new BusinessException(BusinessExceptionCode.LOGIN_USER_ERROR);
+        }else{
+            if (userDB.getPassword().equals(req.getPassword())){
+//                登录成功
+                UserLoginResp userLoginResp=CopyUtil.copy(userDB,UserLoginResp.class);
+                return userLoginResp;
+            }else {
+//                密码错误
+                Log.info("密码不正确 输入密码为{} 正确密码是 {}",req.getPassword(),userDB.getPassword());
+                throw  new BusinessException(BusinessExceptionCode.LOGIN_USER_ERROR);
+            }
         }
     }
 }

@@ -1,12 +1,11 @@
 package com.jiawa.wiki.controller;
 
+import com.jiawa.wiki.req.UserLoginReq;
 import com.jiawa.wiki.req.UserQueryReq;
 import com.jiawa.wiki.req.UserSaveReq;
-import com.jiawa.wiki.resp.CommonResp;
-import com.jiawa.wiki.resp.PageResp;
-import com.jiawa.wiki.resp.UserQueryResp;
-import com.jiawa.wiki.resp.UserResps;
+import com.jiawa.wiki.resp.*;
 import com.jiawa.wiki.service.UserServce;
+import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -36,6 +35,8 @@ public class UserController {
 
     @PostMapping("/save")
     public CommonResp save(@Valid @RequestBody UserSaveReq req){
+//        将密码进行加密
+        req.setPassword(DigestUtils.md5DigestAsHex(req.getPassword().getBytes()));
         CommonResp objectCommonResp = new CommonResp<>();
         userServce.save(req);
         return objectCommonResp;
@@ -47,6 +48,15 @@ public class UserController {
         System.out.println("删除来了");
         userServce.delete(id);
         return objectCommonResp;
+    }
+
+    @PostMapping("/login")
+    public CommonResp login(@Valid @RequestBody UserLoginReq req){
+        req.setPassword(DigestUtils.md5DigestAsHex( req.getPassword().getBytes()));
+        CommonResp<UserLoginResp> resps = new CommonResp<>();
+        UserLoginResp userLoginResp=userServce.login(req);
+        resps.setContent(userLoginResp);
+        return resps;
     }
 
 

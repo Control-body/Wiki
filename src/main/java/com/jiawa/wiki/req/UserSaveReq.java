@@ -32,6 +32,6 @@ public class UserSaveReq {
      * 密码
      */
     @NotNull(message = "[密码]不能为空")
-    @Length(min = 6,max = 20 ,message = "[密码]6~20位")
+    @Length(min = 6,max = 32 ,message = "[密码]6~32位")
     private String password;
 }
