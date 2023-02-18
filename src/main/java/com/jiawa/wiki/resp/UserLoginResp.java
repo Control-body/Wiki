@@ -4,10 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserLoginResp {
+public class UserLoginResp implements Serializable {
     /**
      * ID
      */
@@ -22,5 +24,11 @@ public class UserLoginResp {
      * 昵称
      */
     private String name;
+
+    /**
+     * token的保存
+     *
+     */
+    private String token;
 
 }
